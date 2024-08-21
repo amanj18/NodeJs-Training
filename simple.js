@@ -1,19 +1,29 @@
-// const cal = require('./calculator');
-const {add, PI} = require('./calculator');
-// const calc = require('./calcESModule.mjs');
-// import {add, PI} from './calculator.js';
+// const calc = require('./calculator')
+const {add,PI} = require('./calculator')
+console.log('welcome')
 
-console.log('welcome');
-// console.log(message);
-let addResult = add(10, 20);
-console.log("add result "+ addResult);
-let area = PI * 10 * 10;
-console.log("Area of circle "+ area);
+// console.log(message)
 
-import ('./calcESModule.mjs').then(
-    es=> {
-        console.log(es.default);
-        console.log(es.multiply(10, 20));
-        console.log(es.divide(10, 20));
+let addResult = add(5,6)
+
+console.log("Add result" + addResult)
+let area = PI*3*3
+console.log("Area" + area)
+
+//to import a ES6 module dynamically
+import ('./calcFSModule.mjs').then(
+    es=> {console.log(es.default);
+        console.log(es.multiple(10,10));
     }
 )
+
+
+
+
+async function divide () {
+    const es6Module = await import('./calcFSModule.mjs')
+    const result = await es6Module.divide(100, 5);
+    console.log("Divison result" + result);
+}
+
+divide();
