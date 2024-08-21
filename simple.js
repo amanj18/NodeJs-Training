@@ -16,6 +16,7 @@ console.log("Area" + area)
 import ('./calcESModule.mjs').then(
     es => {console.log(es.default);
         console.log(es.multiply(10,10))
+        console.log(es.divide(100,5))
     }
 )
 
